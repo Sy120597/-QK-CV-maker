@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Form with Live Preview</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Form Section -->
+    <div class="form-container">
+      <h2>Resume Form</h2>
+      <form id="resume-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" maxlength="30" placeholder="Enter Your Name">
+
+        <label for="contact">Contact No.</label>
+        <input type="tel" id="contact" name="contact" maxlength="14" placeholder="Enter Contact Number">
+
+        <label for="gmail">Gmail</label>
+        <input type="email" id="gmail" name="gmail" maxlength="50" placeholder="Enter Your Gmail">
+
+        <label for="portfolio">Portfolio</label>
+        <input type="url" id="portfolio" name="portfolio" maxlength="250" placeholder="Portfolio Link">
+
+        <label for="linkedin">LinkedIn</label>
+        <input type="url" id="linkedin" name="linkedin" maxlength="250" placeholder="LinkedIn Link">
+
+        <label for="github">GitHub</label>
+        <input type="url" id="github" name="github" maxlength="250" placeholder="Github Link">
+
+        <label for="about">About Me (max 200 words)</label>
+        <textarea id="about" maxlength="200"></textarea>
+
+        <!-- Education Section -->
+        <div id="education-section" class="section">
+          <label>Education</label>
+          <div class="block">
+            <input type="text" class="education" placeholder="Enter education details">
+            <button type="button" class="delete-btn hidden" onclick="deleteField(this)">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="add-btn" onclick="addField('education-section','Enter education details')">+ Add More</button>
+
+        <!-- Experience Section -->
+        <div id="experience-section" class="section">
+          <label>Experience</label>
+          <div class="block">
+            <input type="text" class="experience" placeholder="Enter experience details">
+            <button type="button" class="delete-btn hidden" onclick="deleteField(this)">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="add-btn" onclick="addField('experience-section','Enter experience details')">+ Add More</button>
+
+        <!-- Project Section -->
+        <div id="project-section" class="section">
+          <label>Projects</label>
+          <div class="block">
+            <input type="text" class="project" placeholder="Enter project details">
+            <button type="button" class="delete-btn hidden" onclick="deleteField(this)">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="add-btn" onclick="addField('project-section','Enter project details')">+ Add More</button>
+
+        <!-- Certification Section -->
+        <div id="certification-section" class="section">
+          <label>Certifications</label>
+          <div class="block">
+            <input type="text" class="certification" placeholder="Enter certification details">
+            <button type="button" class="delete-btn hidden" onclick="deleteField(this)">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="add-btn" onclick="addField('certification-section','Enter certification details')">+ Add More</button>
+
+        <!-- Extra Curriculum Section -->
+        <div id="activity-section" class="section">
+          <label>Extra Curriculum Activities</label>
+          <div class="block">
+            <input type="text" class="activity" placeholder="Enter activity details">
+            <button type="button" class="delete-btn hidden" onclick="deleteField(this)">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="add-btn" onclick="addField('activity-section','Enter activity details')">+ Add More</button>
+      </form>
+  </div>
+  <button class="tempuBtn">Tamplates</button>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+body {
+  font-family: Arial;
+  background-color: #fff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container styled as A4 sheet */
+.container {
+  width: 210mm;          /* A4 width */
+  height: 297mm;         /* A4 height */
+  background: #fff;
+  border: 2px solid #534e4e; /* Black border */
+  padding: 10mm;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Form area inside the sheet */
+.form-container {
+  flex: 1;
+  max-width: 800px;
+  background: #fff;
+  padding: 15px;
+  /* border-radius: 10px; */
+  box-shadow: none;
+}
+
+/* Labels */
+form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+/* General Input & Textarea */
+form input, form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+
+input, textarea {
+  font-family: inherit; /* same as body */
+}
+
+  /* border-bottom: 1px solid #ccc;
+  background: transparent;
+}
+
+/* form input:focus, form textarea:focus {
+  border-bottom: 1px solid #000;
+} */
+
+/* Centered Name */
+#name {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Contact Info Row */
+.contact-info {
+  display: flex;
+  justify-content: space-between; /* keeps them in one line */
+  flex-wrap: nowrap; /* don't allow wrapping */
+  margin-top: 5px;
+  gap: 8px; /* spacing between inputs */
+}
+
+.contact-info input {
+  flex: 1; /* make them adjust evenly */
+  min-width: 0; /* prevent forcing extra space */
+  text-align: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 5px;
+  font-size: 14px;
+}
+
+
+/* .contact-info input:focus {
+  border-bottom: 1px solid #000;
+} */
+
+/* Sections */
+.section {
+  margin-top: 20px;
+}
+
+/* Block style */
+.block {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.block input {
+  flex: 1;
+}
+
