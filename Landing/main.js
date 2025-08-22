@@ -1,5 +1,34 @@
-document.querySelector(".tempuBtn").addEventListener("click", function () {
-  // Collect form data
+// Add new field dynamically
+function addField(sectionId, placeholder) {
+  let section = document.getElementById(sectionId);
+
+  let block = document.createElement("div");
+  block.classList.add("block");
+
+  let input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = placeholder;
+
+  let delBtn = document.createElement("button");
+  delBtn.type = "button";
+  delBtn.textContent = "Delete";
+  delBtn.classList.add("delete-btn");
+  delBtn.onclick = function () {
+    deleteField(delBtn);
+  };
+
+  block.appendChild(input);
+  block.appendChild(delBtn);
+  section.appendChild(block);
+}
+
+// Delete field
+function deleteField(btn) {
+  btn.parentElement.remove();
+}
+
+// Save form data and redirect to template
+function goToTemplate() {
   const formData = {
     name: document.getElementById("name").value,
     contact: document.getElementById("contact").value,
@@ -15,46 +44,14 @@ document.querySelector(".tempuBtn").addEventListener("click", function () {
     activity: Array.from(document.querySelectorAll(".activity")).map(e => e.value),
   };
 
-//   // Add new field dynamically
-// function addField(sectionId, placeholder) {
-//   let section = document.getElementById(sectionId);
-
-//   // Create wrapper div
-//   let block = document.createElement("div");
-//   block.classList.add("block");
-
-//   // Create input
-//   let input = document.createElement("input");
-//   input.type = "text";
-//   input.placeholder = placeholder;
-
-//   // Create delete button
-//   let delBtn = document.createElement("button");
-//   delBtn.type = "button";
-//   delBtn.textContent = "Delete";
-//   delBtn.classList.add("delete-btn");
-//   delBtn.onclick = function () {
-//     deleteField(delBtn);
-//   };
-
-//   // Append input and delete button
-//   block.appendChild(input);
-//   block.appendChild(delBtn);
-
-//   // Add new block to section
-//   section.appendChild(block);
-// }
-
-// // Delete field
-// function deleteField(btn) {
-//   btn.parentElement.remove();  // remove the block div
-// }
-
-
-  // Save data in localStorage
+  // Save in localStorage
   localStorage.setItem("resumeData", JSON.stringify(formData));
 
-  // Redirect to template page
-  window.location.href = "temp1.html";
-  window.location.href = "temp2.html";
-});
+  // Redirect to selected template
+  let selected = document.getElementById("templateSelect").value;
+  if (selected) {
+    window.location.href = selected;
+  } else {
+    alert("Please select a template first!");
+  }
+}

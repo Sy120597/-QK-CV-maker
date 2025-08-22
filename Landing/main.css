@@ -4,6 +4,35 @@ body {
   margin: 0;
   padding: 20px;
 }
+.block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.add-btn {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-btn {
+  background: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.hidden {
+  display: none;
+}
 
 .container {
   display: flex;
