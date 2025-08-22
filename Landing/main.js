@@ -15,6 +15,42 @@ document.querySelector(".tempuBtn").addEventListener("click", function () {
     activity: Array.from(document.querySelectorAll(".activity")).map(e => e.value),
   };
 
+//   // Add new field dynamically
+// function addField(sectionId, placeholder) {
+//   let section = document.getElementById(sectionId);
+
+//   // Create wrapper div
+//   let block = document.createElement("div");
+//   block.classList.add("block");
+
+//   // Create input
+//   let input = document.createElement("input");
+//   input.type = "text";
+//   input.placeholder = placeholder;
+
+//   // Create delete button
+//   let delBtn = document.createElement("button");
+//   delBtn.type = "button";
+//   delBtn.textContent = "Delete";
+//   delBtn.classList.add("delete-btn");
+//   delBtn.onclick = function () {
+//     deleteField(delBtn);
+//   };
+
+//   // Append input and delete button
+//   block.appendChild(input);
+//   block.appendChild(delBtn);
+
+//   // Add new block to section
+//   section.appendChild(block);
+// }
+
+// // Delete field
+// function deleteField(btn) {
+//   btn.parentElement.remove();  // remove the block div
+// }
+
+
   // Save data in localStorage
   localStorage.setItem("resumeData", JSON.stringify(formData));
 

@@ -74,16 +74,36 @@ input, textarea {
   display: none;
 }
 
-.tempuBtn{
-  height: 50px;
+.button-row {
+  display: flex;              
+  justify-content: center;    
+  align-items: center;        
+  gap: 20px;                  
+  margin-top: 40px;           
+}
+
+/* dropdown */
+
+#templateSelect{
+  height: 40px;
   width: 150px;
   margin-top: 42%;
-  background-color: #797a0b;
-  color: white;
-  font-size: medium;
-  border: 1px solid black;
-  padding: 8px 20px;
+  background-color: #221e1e;
+  border: 1px solid grey;
   border-radius: 10px;
-  margin-right: 15%;
-  cursor: pointer;
+  color: #ccc;
+  font-size:medium;
+  margin-right: 1%;
+}
+
+#tempOpen{
+  height: 40px;
+  width: 120px;
+  margin-top: 42%;
+  background-color: #221e1e;
+  border: 1px solid grey;
+  border-radius: 10px;
+  color: #ccc;
+  font-size:medium;
+  margin-right: 3%;
 }

@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume Form with Live Preview</title>
   <link rel="stylesheet" href="main.css">
+  <style>
+    .block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 5px;
+    }
+    .add-btn {
+      margin-top: 5px;
+      padding: 5px 10px;
+      background: #28a745;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .delete-btn {
+      background: #d9534f;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -84,8 +112,55 @@
         <button type="button" class="add-btn" onclick="addField('activity-section','Enter activity details')">+ Add More</button>
       </form>
   </div>
-  <button class="tempuBtn">Tamplates</button>
 
-  <script src="main.js"></script>
+  <select id="templateSelect">
+    <option value="">-- Select Template --</option>
+    <option value="temp1.html">Template 1</option>
+    <option value="temp2.html">Template 2</option>
+    <option value="temp3.html">Template 3</option>
+  </select>
+  <button id="tempOpen" onclick="goToTemplate()">Open</button>
+
+  <script>
+    // Add field
+    function addField(sectionId, placeholder) {
+      let section = document.getElementById(sectionId);
+
+      let block = document.createElement("div");
+      block.classList.add("block");
+
+      let input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = placeholder;
+
+      let delBtn = document.createElement("button");
+      delBtn.type = "button";
+      delBtn.textContent = "Delete";
+      delBtn.classList.add("delete-btn");
+      delBtn.onclick = function () {
+        deleteField(delBtn);
+      };
+
+      block.appendChild(input);
+      block.appendChild(delBtn);
+      section.appendChild(block);
+    }
+
+    // Delete field
+    function deleteField(btn) {
+      btn.parentElement.remove();
+    }
+
+    // Open template
+    function goToTemplate() {
+      let selected = document.getElementById("templateSelect").value;
+      if (selected) {
+        window.location.href = selected;
+      } else {
+        alert("Please select a template first!");
+      }
+    }
+  </script>
+
 </body>
 </html>
