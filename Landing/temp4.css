@@ -33,8 +33,6 @@ input, textarea {
   font-size: 30px;
   text-align: center;
   border: hidden;
-  /* border: 2px solid #ccc;
-  border-radius: 5px; */
 }
 
 /* Vertical Line */
@@ -66,8 +64,6 @@ input, textarea {
   padding: 8px;
   width: 100%;
   border: hidden;
-  /* border: 1px solid #ccc;
-  border-radius: 4px; */
 }
 
 /* About Me Textarea */
@@ -113,19 +109,26 @@ label[for="about"] {
   padding: 8px;
   margin-bottom: 8px;
   border: hidden;
-  /* border: 1px solid #ccc;
-  border-radius: 4px; */
+}
+/* Download PDF button */
+#downloadPDF {
+  display: block;           /* full-width block */
+  margin: 20px auto 0;      /* 20px top margin, centered horizontally */
+  padding: 12px 25px;
+  background-color: #4CAF50; /* green color */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Horizontal line */
-/* hr {
-  margin-left: 21.5%;
-  width: 78%;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin-bottom: 20px; */
-
-/* Optional: Print styling */
+#downloadPDF:hover {
+  background-color: #45a049; /* darker green on hover */
+  transform: scale(1.05);
+}
 
 @media print {
   .container {

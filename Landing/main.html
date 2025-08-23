@@ -8,7 +8,8 @@
 </head>
 <body>
   <div class="container">
-    <!-- Form Section -->
+
+    <!-- Left Side (Form Section) -->
     <div class="form-container">
       <h2>Resume Form</h2>
       <form id="resume-form">
@@ -31,7 +32,7 @@
         <input type="url" id="github" name="github" maxlength="250" placeholder="Github Link">
 
         <label for="about">About Me (max 200 words)</label>
-        <textarea id="about" maxlength="200"></textarea>
+        <textarea id="about" maxlength="200" placeholder="Write something about yourself"></textarea>
 
         <!-- Education Section -->
         <div id="education-section" class="section">
@@ -84,28 +85,68 @@
         <button type="button" class="add-btn" onclick="addField('activity-section','Enter activity details')">+ Add More</button>
       </form>
     </div>
-  </div>
 
-  <!-- Template Selection -->
-  <select id="templateSelect">
-    <option value="">-- Select Template --</option>
-    <option value="temp1.html">Template 1</option>
-    <option value="temp2.html">Template 2</option>
-    <option value="temp3.html">Template 3</option>
-    <option value="temp4.html">Template 4</option>
-    <option value="temp5.html">Template 5</option>
-    <option value="temp6.html">Template 6</option>
-    <option value="temp7.html">Template 7</option>
-    <option value="temp8.html">Template 8</option>
-    <option value="temp9.html">Template 9</option>
-    <option value="temp10.html">Template 10</option>
-    <option value="temp11.html">Template 11</option>
-    <option value="temp12.html">Template 12</option>
-    <option value="temp13.html">Template 13</option>
-    <option value="temp14.html">Template 15</option>
-    <option value="temp15.html">Template 15</option>
-  </select>
-  <button id="tempOpen" onclick="goToTemplate()">Open</button>
+    <!-- Right Side (Templates Preview Section) -->
+    <div class="template-container">
+      <h2>Template Samples</h2>
+
+      <!-- Template Preview Thumbnails -->
+      <div class="template-sample">
+        <img src="images/temp1.png" alt="Template 1" class="template-img" data-template="temp1.html">
+        <span class="template-label">Template 1</span>
+      </div>
+      <div class="template-sample">
+        <img src="images/temp2.png" alt="Template 2" class="template-img" data-template="temp2.html">
+        <span class="template-label">Template 2</span>
+      </div>
+      <div class="template-sample">
+        <img src="images/temp3.png" alt="Template 3" class="template-img" data-template="temp3.html">
+        <span class="template-label">Template 3</span>
+      </div>
+      <div class="template-sample">
+        <img src="images/temp4.png" alt="Template 4" class="template-img" data-template="temp4.html">
+        <span class="template-label">Template 4</span>
+      </div>
+      <div class="template-sample">
+        <img src="images/temp5.png" alt="Template 5" class="template-img" data-template="temp5.html">
+        <span class="template-label">Template 5</span>
+      </div>
+      <div class="template-sample">
+        <img src="images/temp6.png" alt="Template 6" class="template-img" data-template="temp6.html">
+        <span class="template-label">Template 6</span>
+      </div>
+      <div class="template-sample">
+        <img src="images/temp7.png" alt="Template 7" class="template-img" data-template="temp7.html">
+        <span class="template-label">Template 7</span>
+      </div>
+      <div class="template-sample">
+        <img src="images/temp8.png" alt="Template 8" class="template-img" data-template="temp8.html">
+        <span class="template-label">Template 8</span>
+      </div>
+      <div class="template-sample">
+        <img src="images/temp9.png" alt="Template 9" class="template-img" data-template="temp9.html">
+        <span class="template-label">Template 9</span>
+      </div>
+
+      <!-- Dropdown + Open button -->
+      <div class="template-actions">
+        <select id="templateSelect">
+          <option value="">-- Select Template --</option>
+          <option value="temp1.html">Template 1</option>
+          <option value="temp2.html">Template 2</option>
+          <option value="temp3.html">Template 3</option>
+          <option value="temp4.html">Template 4</option>
+          <option value="temp5.html">Template 5</option>
+          <option value="temp6.html">Template 6</option>
+          <option value="temp7.html">Template 7</option>
+          <option value="temp8.html">Template 8</option>
+          <option value="temp9.html">Template 9</option>
+        </select>
+        <button id="tempOpen" onclick="goToTemplate()">Open</button>
+      </div>
+    </div>
+
+  </div>
 
   <!-- External JS file -->
   <script src="main.js"></script>

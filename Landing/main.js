@@ -7,6 +7,14 @@ function addField(sectionId, placeholder) {
 
   let input = document.createElement("input");
   input.type = "text";
+
+  // Set class based on section
+  if(sectionId.includes("education")) input.className = "education";
+  if(sectionId.includes("experience")) input.className = "experience";
+  if(sectionId.includes("project")) input.className = "project";
+  if(sectionId.includes("certification")) input.className = "certification";
+  if(sectionId.includes("activity")) input.className = "activity";
+
   input.placeholder = placeholder;
 
   let delBtn = document.createElement("button");
@@ -20,11 +28,39 @@ function addField(sectionId, placeholder) {
   block.appendChild(input);
   block.appendChild(delBtn);
   section.appendChild(block);
+
+  // Show delete button for all except first
+  let blocks = section.querySelectorAll(".block");
+  blocks.forEach((b, index) => {
+    let btn = b.querySelector(".delete-btn");
+    if (btn) btn.classList.toggle("hidden", index === 0);
+  });
 }
 
 // Delete field
 function deleteField(btn) {
-  btn.parentElement.remove();
+  let block = btn.parentElement;
+  let section = block.parentElement;
+  block.remove();
+
+  // Keep first block's delete hidden
+  let blocks = section.querySelectorAll(".block");
+  if (blocks.length > 0) {
+    let firstBtn = blocks[0].querySelector(".delete-btn");
+    if (firstBtn) firstBtn.classList.add("hidden");
+  }
+}
+
+// Handle template selection from image click
+function selectTemplate(template, imgElement) {
+  document.getElementById("templateSelect").value = template;
+
+  // Remove highlight from all images
+  let images = document.querySelectorAll(".template-img");
+  images.forEach(img => img.classList.remove("selected-template"));
+
+  // Highlight clicked image
+  imgElement.classList.add("selected-template");
 }
 
 // Save form data and redirect to template
@@ -55,3 +91,26 @@ function goToTemplate() {
     alert("Please select a template first!");
   }
 }
+
+document.getElementById("downloadPDF").addEventListener("click", () => {
+  const element = document.querySelector(".container"); // Capture your container div
+  html2canvas(element, { scale: 2 }).then(canvas => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jspdf.jsPDF('p', 'pt', 'a4');
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save("resume.pdf");
+  });
+});
+
+
+// Add click event for template images dynamically
+window.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".template-img");
+  images.forEach(img => {
+    img.addEventListener("click", () => selectTemplate(img.dataset.template, img));
+  });
+});

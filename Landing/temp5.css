@@ -1,4 +1,4 @@
-/* Container */
+/* A4 Container */
 .container {
   width: 210mm;
   height: 297mm;
@@ -87,8 +87,7 @@ label[for="about"] {
   min-height: 80px;
   text-align: left;
   border: hidden;
-  /* border: 1px solid #ccc;
-  border-radius: 5px; */
+
 }
 
 /* Input blocks */
@@ -99,14 +98,37 @@ label[for="about"] {
   display: block;
   padding: 8px;
   border: hidden;
-  /* border: 1px solid #ccc;
-  border-radius: 5px; */
 }
 
-/* Horizontal line */
-/* hr {
+/* Download PDF button */
+#downloadPDF {
+  display: block;           /* full-width block */
+  margin: 20px auto 0;      /* 20px top margin, centered horizontally */
+  padding: 12px 25px;
+  background-color: #4CAF50; /* green color */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
   border: none;
-  height: 1px;
-  background-color: #ccc;
-  margin: 20px 0;
-} */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#downloadPDF:hover {
+  background-color: #45a049; /* darker green on hover */
+  transform: scale(1.05);
+}
+
+@media print {
+  .container {
+    border: none;
+    margin: 0;
+    width: 210mm;
+    height: 297mm;
+  }
+
+  #name, .contact-info input, #about, .block input {
+    font-size: 12pt;
+  }
+}

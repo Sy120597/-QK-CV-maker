@@ -5,10 +5,11 @@ body {
   padding: 20px;
   display: flex;
   justify-content: center;
+  flex-direction: column; /* allow button to be below container */
+  align-items: center;
 }
 
 /* Container styled as A4 sheet */
-
 .container {
   width: 210mm;          /* A4 width */
   height: 297mm;         /* A4 height */
@@ -52,14 +53,6 @@ input, textarea {
   font-family: inherit; /* same as body */
 }
 
-  /* border-bottom: 1px solid #ccc;
-  background: transparent;
-}
-
-/* form input:focus, form textarea:focus {
-  border-bottom: 1px solid #000;
-} */
-
 /* Wrapper to keep name and contact inline */
 .header {
   display: flex;
@@ -99,13 +92,6 @@ input, textarea {
   font-family: inherit;
 }
 
-
-
-
-/* .contact-info input:focus {
-  border-bottom: 1px solid #000;
-} */
-
 /* Sections */
 .section {
   margin-top: 20px;
@@ -122,4 +108,35 @@ input, textarea {
   flex: 1;
 }
 
+/* Download PDF button */
+#downloadPDF {
+  display: block;           /* full-width block */
+  margin: 20px auto 0;      /* 20px top margin, centered horizontally */
+  padding: 12px 25px;
+  background-color: #4CAF50; /* green color */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+#downloadPDF:hover {
+  background-color: #45a049; /* darker green on hover */
+  transform: scale(1.05);
+}
+
+@media print {
+  .container {
+    border: none;
+    margin: 0;
+    width: 210mm;
+    height: 297mm;
+  }
+
+  #name, .contact-info input, #about, .block input {
+    font-size: 12pt;
+  }
+}

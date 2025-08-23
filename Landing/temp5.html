@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume Form</title>
   <link rel="stylesheet" href="temp5.css">
+  
+  <!-- jsPDF and html2canvas Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
 </head>
 <body>
   <div class="container">
@@ -74,38 +79,55 @@
       </form>
     </div>
   </div>
+ 
+<!-- Download PDF Button -->
+    <button type="button" id="downloadPDF">Download PDF</button>
+
+  <!-- External JS file -->
+  <script src="main.js"></script>
+
   <script>
-   window.addEventListener("DOMContentLoaded", () => {
-     const data = JSON.parse(localStorage.getItem("resumeData"));
-     if (!data) return;
+    // Load saved data from localStorage
+    window.addEventListener("DOMContentLoaded", () => {
+      const data = JSON.parse(localStorage.getItem("resumeData"));
+      if (!data) return;
 
-     // Fill basic info
+      document.getElementById("name").value = data.name;
+      document.getElementById("contact").value = data.contact;
+      document.getElementById("gmail").value = data.gmail;
+      document.getElementById("linkedin").value = data.linkedin;
+      document.getElementById("github").value = data.github;
+      document.getElementById("about").value = data.about;
 
-     document.getElementById("name").value = data.name;
-     document.getElementById("contact").value = data.contact;
-     document.getElementById("gmail").value = data.gmail;
-     document.getElementById("linkedin").value = data.linkedin;
-     document.getElementById("github").value = data.github;
-     document.getElementById("about").value = data.about;
+      function fillSection(sectionId, className, values) {
+        const section = document.getElementById(sectionId);
+        section.innerHTML = `<label>${section.querySelector("label").innerText}</label>`;
+        values.forEach(val => {
+          const block = document.createElement("div");
+          block.classList.add("block");
+          block.innerHTML = `<input type="text" class="${className}" value="${val}" readonly>`;
+          section.appendChild(block);
+        });
+      }
 
-     // Fill list sections (Education, Experience, etc.)
-    
-     function fillSection(sectionId, className, values) {
-       const section = document.getElementById(sectionId);
-       section.innerHTML = `<label>${section.querySelector("label").innerText}</label>`;
-       values.forEach(val => {
-        const block = document.createElement("div");
-        block.classList.add("block");
-        block.innerHTML = `<input type="text" class="${className}" value="${val}" readonly>`;
-        section.appendChild(block);
+      fillSection("education-section", "education", data.education);
+      fillSection("experience-section", "experience", data.experience);
+      fillSection("project-section", "project", data.project);
+      fillSection("certification-section", "certification", data.certification);
+      fillSection("activity-section", "activity", data.activity);
+    });
+
+    // Download PDF
+    document.getElementById("downloadPDF").addEventListener("click", () => {
+      const element = document.querySelector(".form-container");
+      html2canvas(element, { scale: 2 }).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jspdf.jsPDF('p', 'pt', 'a4');
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("resume.pdf");
       });
-    }
-
-     fillSection("education-section", "education", data.education);
-     fillSection("experience-section", "experience", data.experience);
-     fillSection("project-section", "project", data.project);
-     fillSection("certification-section", "certification", data.certification);
-     fillSection("activity-section", "activity", data.activity);
     });
   </script>
 </body>

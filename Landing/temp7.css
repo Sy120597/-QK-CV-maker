@@ -1,4 +1,5 @@
 /* Container A4 */
+
 .container {
   width: 210mm;
   height: 297mm;
@@ -16,6 +17,7 @@ input, textarea {
 }
 
 /* Name Centered at Top */
+
 #name {
   text-align: center;
   font-size: 32px;
@@ -78,6 +80,10 @@ label[for="about"],
 #about{
   margin-left: 24%;
   width: 75%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .block input {
@@ -97,3 +103,38 @@ hr {
   /* border-top: 1px solid #ccc; */
   margin-bottom: 20px;
 }
+
+/* Download PDF button */
+
+#downloadPDF {
+  display: block;           /* full-width block */
+  margin: 20px auto 0;      /* 20px top margin, centered horizontally */
+  padding: 12px 25px;
+  background-color: #4CAF50; /* green color */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#downloadPDF:hover {
+  background-color: #45a049; /* darker green on hover */
+  transform: scale(1.05);
+}
+
+@media print {
+  .container {
+    border: none;
+    margin: 0;
+    width: 210mm;
+    height: 297mm;
+  }
+
+  #name, .contact-info input, #about, .block input {
+    font-size: 12pt;
+  }
+}
+

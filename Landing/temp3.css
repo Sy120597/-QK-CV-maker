@@ -35,17 +35,6 @@ input, textarea {
   border-radius: 5px;
 }
 
-/* Vertical Line */
-/* #resume-form::before {
-  content: '';
-  position: absolute;
-  left: 0%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: #000;
-} */
-
 /* Contact Info Vertical Left */
 .contact-info {
   display: flex;
@@ -107,16 +96,26 @@ label[for="about"] {
   border-radius: 4px;
 }
 
-/* Horizontal line */
-/* hr {
-  margin-left: 22%;
-  width: 75%;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin-bottom: 20px;
-} */
+/* Download PDF button */
+#downloadPDF {
+  display: block;           /* full-width block */
+  margin: 20px auto 0;      /* 20px top margin, centered horizontally */
+  padding: 12px 25px;
+  background-color: #4CAF50; /* green color */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-/* Optional: Print styling */
+#downloadPDF:hover {
+  background-color: #45a049; /* darker green on hover */
+  transform: scale(1.05);
+}
+
 @media print {
   .container {
     border: none;

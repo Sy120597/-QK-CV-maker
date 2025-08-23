@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume Form</title>
   <link rel="stylesheet" href="temp6.css">
+
+  <!-- jsPDF and html2canvas Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
 </head>
 <body>
   <div class="container">
     <!-- Form Section -->
     <div class="form-container">
       <form id="resume-form">
-        
-        <!-- Name Centered -->
+        <!-- Name -->
         <label for="name"></label>
         <input type="text" id="name" name="name" maxlength="30" placeholder="Enter Your Name">
 
-        <!-- Contact Info Row -->
+        <!-- Contact Info -->
         <div class="contact-info">
           <input type="tel" id="contact" name="contact" maxlength="14" placeholder="Contact No.">
           <input type="email" id="gmail" name="gmail" maxlength="50" placeholder="Gmail">
@@ -25,11 +29,12 @@
         </div>
         <hr>
 
-        <!-- About Section -->
+        <!-- About -->
         <label for="about">About Me</label>
         <textarea id="about" maxlength="200" placeholder="Max 200 words"></textarea>
         <hr>
-        <!-- Education Section -->
+
+        <!-- Education -->
         <div id="education-section" class="section">
           <label>Education</label>
           <div class="block">
@@ -38,7 +43,7 @@
         </div>
         <hr>
 
-        <!-- Experience Section -->
+        <!-- Experience -->
         <div id="experience-section" class="section">
           <label>Experience</label>
           <div class="block">
@@ -46,7 +51,8 @@
           </div>
         </div>
         <hr>
-        <!-- Project Section -->
+
+        <!-- Projects -->
         <div id="project-section" class="section">
           <label>Projects</label>
           <div class="block">
@@ -55,58 +61,76 @@
         </div>
         <hr>
 
-        <!-- Certification Section -->
+        <!-- Certifications -->
         <div id="certification-section" class="section">
           <label>Certifications</label>
           <div class="block">
             <input type="text" class="certification" placeholder="Enter certification details">
           </div>
         </div>
-        <hr>  
+        <hr>
 
-        <!-- Extra Curriculum Section -->
+        <!-- Extra Curriculum -->
         <div id="activity-section" class="section">
           <label>Extra Curriculum Activities</label>
           <div class="block">
             <input type="text" class="activity" placeholder="Enter activity details">
           </div>
         </div>
+
       </form>
     </div>
   </div>
-  <!-- <script>
-   window.addEventListener("DOMContentLoaded", () => {
-     const data = JSON.parse(localStorage.getItem("resumeData"));
-     if (!data) return;
 
-     // Fill basic info
+<!-- Download PDF Button -->
+    <button type="button" id="downloadPDF">Download PDF</button>
 
-     document.getElementById("name").value = data.name;
-     document.getElementById("contact").value = data.contact;
-     document.getElementById("gmail").value = data.gmail;
-     document.getElementById("linkedin").value = data.linkedin;
-     document.getElementById("github").value = data.github;
-     document.getElementById("about").value = data.about;
+  <!-- External JS file -->
+  <script src="main.js"></script>
 
-     // Fill list sections (Education, Experience, etc.)
-    
-     function fillSection(sectionId, className, values) {
-       const section = document.getElementById(sectionId);
-       section.innerHTML = `<label>${section.querySelector("label").innerText}</label>`;
-       values.forEach(val => {
-        const block = document.createElement("div");
-        block.classList.add("block");
-        block.innerHTML = `<input type="text" class="${className}" value="${val}" readonly>`;
-        section.appendChild(block);
-      });
-    }
+  <script>
+    // Load saved data from localStorage
+    window.addEventListener("DOMContentLoaded", () => {
+      const data = JSON.parse(localStorage.getItem("resumeData"));
+      if (!data) return;
 
-     fillSection("education-section", "education", data.education);
-     fillSection("experience-section", "experience", data.experience);
-     fillSection("project-section", "project", data.project);
-     fillSection("certification-section", "certification", data.certification);
-     fillSection("activity-section", "activity", data.activity);
+      document.getElementById("name").value = data.name;
+      document.getElementById("contact").value = data.contact;
+      document.getElementById("gmail").value = data.gmail;
+      document.getElementById("linkedin").value = data.linkedin;
+      document.getElementById("github").value = data.github;
+      document.getElementById("about").value = data.about;
+
+      function fillSection(sectionId, className, values) {
+        const section = document.getElementById(sectionId);
+        section.innerHTML = `<label>${section.querySelector("label").innerText}</label>`;
+        values.forEach(val => {
+          const block = document.createElement("div");
+          block.classList.add("block");
+          block.innerHTML = `<input type="text" class="${className}" value="${val}" readonly>`;
+          section.appendChild(block);
+        });
+      }
+
+      fillSection("education-section", "education", data.education);
+      fillSection("experience-section", "experience", data.experience);
+      fillSection("project-section", "project", data.project);
+      fillSection("certification-section", "certification", data.certification);
+      fillSection("activity-section", "activity", data.activity);
     });
-  </script> -->
+
+    // Download PDF
+    document.getElementById("downloadPDF").addEventListener("click", () => {
+      const element = document.querySelector(".form-container");
+      html2canvas(element, { scale: 2 }).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jspdf.jsPDF('p', 'pt', 'a4');
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("resume.pdf");
+      });
+    });
+  </script>
 </body>
 </html>
