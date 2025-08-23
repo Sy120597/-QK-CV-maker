@@ -1,7 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #d8e68b;
-  margin: 0;
+  margin-left: 1%;
+  margin-right: 40%;
   padding: 20px;
 }
 .block {
@@ -114,25 +115,25 @@ input, textarea {
 /* dropdown */
 
 #templateSelect{
-  height: 40px;
+  height: 38px;
   width: 150px;
-  margin-top: 42%;
-  background-color: #221e1e;
-  border: 1px solid grey;
+  margin-top: 3%;
+  background-color: rgb(24, 122, 24);
+  border: 1px solid rgb(226, 223, 223);
   border-radius: 10px;
-  color: #ccc;
+  color: #fff;
   font-size:medium;
   margin-right: 1%;
 }
 
 #tempOpen{
-  height: 40px;
+  height: 38px;
   width: 120px;
-  margin-top: 42%;
-  background-color: #221e1e;
-  border: 1px solid grey;
+  margin-top: 3%;
+  background-color: rgb(24, 122, 24);
+  border: 1px solid rgb(196, 188, 188);
   border-radius: 10px;
-  color: #ccc;
+  color: #fff;
   font-size:medium;
   margin-right: 3%;
 }

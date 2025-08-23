@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Form</title>
+  <link rel="stylesheet" href="temp5.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Form Section -->
+    <div class="form-container">
+      <form id="resume-form">
+        
+        <!-- Name Centered -->
+        <label for="name"></label>
+        <input type="text" id="name" name="name" maxlength="30" placeholder="Enter Your Name">
+
+        <!-- Contact Info Row -->
+        <div class="contact-info">
+          <input type="tel" id="contact" name="contact" maxlength="14" placeholder="Contact No.">
+          <input type="email" id="gmail" name="gmail" maxlength="50" placeholder="Gmail">
+          <input id="linkedin" name="linkedin" maxlength="250" placeholder="LinkedIn">
+          <input type="url" id="github" name="github" maxlength="250" placeholder="GitHub">
+        </div>
+        <hr>
+
+        <!-- About Section -->
+        <label for="about">About Me</label>
+        <textarea id="about" maxlength="200" placeholder="Max 200 words"></textarea>
+        <hr>
+        <!-- Education Section -->
+        <div id="education-section" class="section">
+          <label>Education</label>
+          <div class="block">
+            <input type="text" class="education" placeholder="Enter education details">
+          </div>
+        </div>
+        <hr>
+
+        <!-- Experience Section -->
+        <div id="experience-section" class="section">
+          <label>Experience</label>
+          <div class="block">
+            <input type="text" class="experience" placeholder="Enter experience details">
+          </div>
+        </div>
+        <hr>
+        <!-- Project Section -->
+        <div id="project-section" class="section">
+          <label>Projects</label>
+          <div class="block">
+            <input type="text" class="project" placeholder="Enter project details">
+          </div>
+        </div>
+        <hr>
+
+        <!-- Certification Section -->
+        <div id="certification-section" class="section">
+          <label>Certifications</label>
+          <div class="block">
+            <input type="text" class="certification" placeholder="Enter certification details">
+          </div>
+        </div>
+        <hr>  
+
+        <!-- Extra Curriculum Section -->
+        <div id="activity-section" class="section">
+          <label>Extra Curriculum Activities</label>
+          <div class="block">
+            <input type="text" class="activity" placeholder="Enter activity details">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+   window.addEventListener("DOMContentLoaded", () => {
+     const data = JSON.parse(localStorage.getItem("resumeData"));
+     if (!data) return;
+
+     // Fill basic info
+
+     document.getElementById("name").value = data.name;
+     document.getElementById("contact").value = data.contact;
+     document.getElementById("gmail").value = data.gmail;
+     document.getElementById("linkedin").value = data.linkedin;
+     document.getElementById("github").value = data.github;
+     document.getElementById("about").value = data.about;
+
+     // Fill list sections (Education, Experience, etc.)
+    
+     function fillSection(sectionId, className, values) {
+       const section = document.getElementById(sectionId);
+       section.innerHTML = `<label>${section.querySelector("label").innerText}</label>`;
+       values.forEach(val => {
+        const block = document.createElement("div");
+        block.classList.add("block");
+        block.innerHTML = `<input type="text" class="${className}" value="${val}" readonly>`;
+        section.appendChild(block);
+      });
+    }
+
+     fillSection("education-section", "education", data.education);
+     fillSection("experience-section", "experience", data.experience);
+     fillSection("project-section", "project", data.project);
+     fillSection("certification-section", "certification", data.certification);
+     fillSection("activity-section", "activity", data.activity);
+    });
+  </script>
+</body>
+</html>

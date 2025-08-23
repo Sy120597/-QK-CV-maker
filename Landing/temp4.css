@@ -1,0 +1,141 @@
+/* A4 Container */
+
+.container {
+  width: 210mm;
+  height: 297mm;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  position: relative; /* needed for vertical line */
+  background-color: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1.8px solid #050404; /* optional: for print preview */
+}
+
+input, textarea {
+  font-family: inherit; /* same as body */
+}
+
+/* Form */
+#resume-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+/* Name Input Centered on Top */
+#name {
+  width: 50%;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  border: hidden;
+  /* border: 2px solid #ccc;
+  border-radius: 5px; */
+}
+
+/* Vertical Line */
+/* Vertical Line full page */
+.container::before {
+  content: '';
+  position: absolute;
+  left: 22.5%;
+  top: 11.5%;
+  height: 100%;
+  width: 1px;
+  background-color: #918c8c;
+  z-index: 0;
+}
+
+
+/* Contact Info Vertical Left */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 112px; /* adjust to position below name */
+  width: 18%; /* slightly left of vertical line */
+  gap: 20px;
+}
+
+.contact-info input {
+  padding: 8px;
+  width: 100%;
+  border: hidden;
+  /* border: 1px solid #ccc;
+  border-radius: 4px; */
+}
+
+/* About Me Textarea */
+
+#about {
+  margin-left: 24%; /* right of vertical line */
+  width: 75%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 5px;
+  border: hidden;
+}
+
+/* About Me Label on Right Side */
+
+label[for="about"] {
+  display: block;
+  text-align: left;
+  margin-left: 24%; /* same as #about */
+  margin-bottom: 5px;
+  font-weight: 550;
+}
+
+
+/* Sections (Education, Experience, Projects, etc.) */
+
+.section {
+  margin-left: 24%; /* right of vertical line */
+  width: 75%;
+  margin-bottom: 2px;
+}
+
+.section label {
+  font-weight: 550;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.block input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: hidden;
+  /* border: 1px solid #ccc;
+  border-radius: 4px; */
+}
+
+/* Horizontal line */
+/* hr {
+  margin-left: 21.5%;
+  width: 78%;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin-bottom: 20px; */
+
+/* Optional: Print styling */
+
+@media print {
+  .container {
+    border: none;
+    margin: 0;
+    width: 210mm;
+    height: 297mm;
+  }
+
+  #name, .contact-info input, #about, .block input {
+    font-size: 12pt;
+  }
+}

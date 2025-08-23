@@ -1,0 +1,112 @@
+/* Container */
+.container {
+  width: 210mm;
+  height: 297mm;
+  margin: 20px auto;
+  font-family:'Times New Roman', Times, serif;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+  font-family: inherit; /* same as body */
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Name input centered */
+#name {
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  border: hidden;
+  /* border: 1px solid #ccc; */
+  /* border-radius: 5px; */
+}
+
+/* Contact info row */
+.contact-info {
+  display:flex;
+  margin-left: 35px;
+  margin-right: 35px;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-info input {
+  padding: 6px;
+  font-size: 15px;
+  width: 160px;
+  border: 1px solid #ccc;
+  border: hidden;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Section labels */
+.section label{
+  width: 92%;
+  margin-left: 4%;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  background-color: #0d2c5c;
+  color: white;
+  padding: 8px 0;
+  border-radius: 4px;
+}
+
+label[for="about"] {
+  width: 92%;
+  margin-left: 4%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #0d2c5c;
+  color: white;
+  padding: 8px 0;
+  border-radius: 4px;
+}
+
+
+/* Textarea styling */
+#about {
+  width: 90%;
+  font-size: 15px;
+  margin: 0 auto;
+  resize: none;
+  padding: 10px;
+  min-height: 80px;
+  text-align: left;
+  border: hidden;
+  /* border: 1px solid #ccc;
+  border-radius: 5px; */
+}
+
+/* Input blocks */
+.block input {
+  width: 90%;
+  font-size: 15px;
+  margin: 10px auto;
+  display: block;
+  padding: 8px;
+  border: hidden;
+  /* border: 1px solid #ccc;
+  border-radius: 5px; */
+}
+
+/* Horizontal line */
+/* hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+} */
