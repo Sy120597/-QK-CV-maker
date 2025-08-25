@@ -7,7 +7,6 @@ body {
   justify-content: center;
 }
 
-/* Container styled as A4 sheet */
 .container {
   width: 210mm;          /* A4 width */
   height: 297mm;         /* A4 height */
@@ -97,8 +96,10 @@ input, textarea {
   flex: 1;
 }
 
+/* Download PDF button */
 #downloadPDF {
-  display: inline-block;
+  display: block;           /* full-width block */
+  margin: 20px auto 0;      /* 20px top margin, centered horizontally */
   padding: 12px 25px;
   background-color: #4CAF50; /* green color */
   color: white;
@@ -107,7 +108,6 @@ input, textarea {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 20px;
   transition: all 0.3s ease;
 }
 

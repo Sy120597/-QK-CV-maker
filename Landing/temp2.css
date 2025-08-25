@@ -75,7 +75,7 @@ input, textarea {
 /* Contact Info as two columns */
 .contact-info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  grid-template-columns: repeat(2, 1fr);
   gap: 5px 10px; /* row gap & column gap */
   text-align: right;
 }

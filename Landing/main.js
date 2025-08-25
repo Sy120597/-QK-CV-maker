@@ -92,6 +92,16 @@ function goToTemplate() {
   }
 }
 
+// Open template in new tab when image is clicked
+function selectTemplate(template) {
+    // Open the template in a new tab
+    window.open(template, "_blank");
+    
+    // Optionally, also select it in the dropdown
+    document.getElementById("templateSelect").value = template;
+}
+
+
 document.getElementById("downloadPDF").addEventListener("click", () => {
   const element = document.querySelector(".container"); // Capture your container div
   html2canvas(element, { scale: 2 }).then(canvas => {
@@ -114,3 +124,4 @@ window.addEventListener("DOMContentLoaded", () => {
     img.addEventListener("click", () => selectTemplate(img.dataset.template, img));
   });
 });
+

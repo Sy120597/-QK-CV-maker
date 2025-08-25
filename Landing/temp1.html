@@ -13,28 +13,34 @@
 </head>
 <body>
   <div class="container">
+
     <!-- Form Section -->
     <div class="form-container">
       <form id="resume-form">
         
         <!-- Name Centered -->
-        <label for="name"></label>
+
+        <div class="header">
         <input type="text" id="name" name="name" maxlength="30" placeholder="Enter Your Name">
 
-        <!-- Contact Info Row -->
-        <div class="contact-info">
-          <input type="tel" id="contact" name="contact" maxlength="14" placeholder="Contact No.">
-          <input type="email" id="gmail" name="gmail" maxlength="50" placeholder="Gmail">
-          <input id="linkedin" name="linkedin" maxlength="250" placeholder="LinkedIn">
-          <input type="url" id="github" name="github" maxlength="250" placeholder="GitHub">
+         <!-- Contact Info Column -->
+
+         <div class="contact-info">
+         <input type="tel" id="contact" name="contact" maxlength="14" placeholder="Contact No.">
+         <input type="email" id="gmail" name="gmail" maxlength="50" placeholder="Gmail">
+         <input id="linkedin" name="linkedin" maxlength="250" placeholder="LinkedIn">
+         <input type="url" id="github" name="github" maxlength="250" placeholder="GitHub">
         </div>
+    </div>
         <hr>
 
         <!-- About Section -->
+
         <label for="about">About Me</label>
         <textarea id="about" maxlength="200" placeholder="max 200 words"></textarea>
         <hr>
         <!-- Education Section -->
+
         <div id="education-section" class="section">
           <label>Education</label>
           <div class="block">
@@ -44,6 +50,7 @@
         <hr>
 
         <!-- Experience Section -->
+
         <div id="experience-section" class="section">
           <label>Experience</label>
           <div class="block">
@@ -52,6 +59,7 @@
         </div>
         <hr>
         <!-- Project Section -->
+
         <div id="project-section" class="section">
           <label>Projects</label>
           <div class="block">
@@ -61,15 +69,17 @@
         <hr>
 
         <!-- Certification Section -->
+
         <div id="certification-section" class="section">
           <label>Certifications</label>
           <div class="block">
             <input type="text" class="certification" placeholder="Enter certification details">
           </div>
         </div>
-        <hr>  
+        <hr>
 
         <!-- Extra Curriculum Section -->
+
         <div id="activity-section" class="section">
           <label>Extra Curriculum Activities</label>
           <div class="block">
@@ -79,12 +89,13 @@
       </form>
     </div>
   </div>
-
   
 <!-- Download PDF Button -->
+
     <button type="button" id="downloadPDF">Download PDF</button>
 
   <!-- External JS file -->
+
   <script src="main.js"></script>
 
   <script>
